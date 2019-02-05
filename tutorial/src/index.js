@@ -1,20 +1,40 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//js in jsx
-function Person(params) {
+//PROPS properties
 
-  const btn = "search button";
-  const name = "john";
-  const lastName = "doe";
-
-  return <section>
-    <button>{btn}</button>
-    <h2>{`${name} ${lastName}`}</h2>
-    <p>{lastName}</p>
-  </section>;
+function sayName(name) {
+  console.log(name);
 }
 
+
+function People(params) {
+  const names = ['Jake', 'Jon', 'Thruster'];
+  const createdCOmponent = names.map(function (name, index) {
+    return <Person key={index} name={name} job={"Seller"} >sffsdfsdf</Person>
+  })
+
+  return (
+    <section>
+      {createdCOmponent}
+    </section>
+  )
+};
+
+const Person = (props) => {
+  const { children, name, job } = props;
+
+  return (
+    <div >
+      <h1>{name}</h1>
+      <p>{job || "Developer"}</p>
+      <h3>{children}</h3>
+      <hr />
+    </div >
+  )
+};
+
+
 ReactDOM.render(
-  <Person />,
+  <People />,
   document.getElementById('root')
 );
