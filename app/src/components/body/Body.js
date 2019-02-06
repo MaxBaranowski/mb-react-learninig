@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { Profile as Person } from "../user/basic/Profile"
 
 export default class Body extends Component {
@@ -6,23 +7,25 @@ export default class Body extends Component {
     {
       img: 22,
       name: "John",
-      job: "Develoer"
+      job: "Developer"
     },
     {
       img: 34,
       name: "Mike",
-      job: "Develoer"
+      job: "Developer"
     },
   ];
 
   render() {
     return (
-      <section>
-        Body Component
+      <Main>
         <Person person={this.people[0]} />
         <Person person={this.people[1]} />
-      </section>
+      </Main>
     )
-
   }
 }
+
+const Main = styled.main`
+  flex: 1;
+`;

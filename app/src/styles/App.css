@@ -2,7 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Raleway";
+  font-weight: 500;
 }
+
+body{
+  background-color: #A4BAB8;
+}
+
+#root{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .person {
   background: #eeeeee;
   width: 17rem;
@@ -12,6 +25,7 @@
   border-radius: 0.3rem;
   text-align: center;
 }
+
 .person img {
   border-radius: 50%;
   border: 0.1rem solid teal;
@@ -23,6 +37,7 @@
   letter-spacing: 0.15rem;
   color: teal;
 }
+
 .person:hover {
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
