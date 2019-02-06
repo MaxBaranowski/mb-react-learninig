@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Profile as Person } from "../user/basic/Profile"
 
+import UserApi from "../../services/api/UserAPI"
+
 export default class Body extends Component {
   people = [
     {
@@ -21,6 +23,7 @@ export default class Body extends Component {
       <Main>
         <Person person={this.people[0]} />
         <Person person={this.people[1]} />
+        <UserApi />
       </Main>
     )
   }
