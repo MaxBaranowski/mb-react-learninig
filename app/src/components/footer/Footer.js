@@ -11,7 +11,7 @@ export default function Footer() {
 
 const FooterWrapper = styled.header`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   box-sizing: border-box;
   align-items: center;
   height: 35px;
@@ -20,8 +20,7 @@ const FooterWrapper = styled.header`
 `;
 
 const FooterName = styled.figure`
-  grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column: 2 / 12;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
