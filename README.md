@@ -14,7 +14,7 @@ Making smth like this
 
 ### Goals to achieve
 
-- [ ] Rewrite Components/Replace to Component Folder
+- [X] Rewrite Components/Replace to Component Folder
 - [ ] Get users info from [Random User Generator](https://randomuser.me/)
 - [ ] Ajax call for getting basic users info
 - [ ] Showing detail user info
