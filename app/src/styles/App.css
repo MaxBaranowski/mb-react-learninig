@@ -7,7 +7,7 @@
 }
 
 body{
-  background-color: #A4BAB8;
+  background-color: #ffff;/*#A4BAB8;*/
 }
 
 #root{
@@ -40,4 +40,17 @@ body{
 
 .person:hover {
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wave-loader-wrapper{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: calc(100vh - 70px);
+}
+
+.wave-loader{
+  height: 10rem;
 }

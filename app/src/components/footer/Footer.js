@@ -9,7 +9,7 @@ export default function Footer() {
   )
 }
 
-const FooterWrapper = styled.header`
+const FooterWrapper = styled.footer`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   box-sizing: border-box;

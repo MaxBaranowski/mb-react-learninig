@@ -2,30 +2,60 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Profile as Person } from "../user/basic/Profile"
 
-import UserApi from "../../services/api/UserAPI"
+import { getBasicUserInfo } from "../../services/api/UserAPI"
 
 export default class Body extends Component {
-  people = [
-    {
-      img: 22,
-      name: "John",
-      job: "Developer"
-    },
-    {
-      img: 34,
-      name: "Mike",
-      job: "Developer"
-    },
-  ];
+  constructor(props) {
+    super(props);
+    this.state = {
+      // isLoaded: true,
+      people: []
+    };
+  }
+
+  componentDidMount() {
+    new Promise((resolve, reject) => {
+      try {
+        const result = getBasicUserInfo(undefined, "name", "picture", "nat");
+        resolve(result)
+      } catch (error) {
+        reject(error.message)
+      }
+    }).then((response) => {
+      this.setState({
+        // isLoaded: true,
+        people: response.results
+      })
+      // console.log(people)
+    }).catch((err) => {
+      console.log(err)
+      throw new Error("ERROR! Geting users data", err);
+    });
+  }
 
   render() {
-    return (
-      <Main>
-        <Person person={this.people[0]} />
-        <Person person={this.people[1]} />
-        <UserApi />
-      </Main>
-    )
+    const { people } = this.state;
+    let persons = [];
+    // making one big component
+    for (let [index, person] of people.entries()) {
+      persons.push(<Person key={index} person={person} />)
+    }
+
+    if (people.length < 1) {
+      return (
+        <Main>
+          <div className="wave-loader-wrapper">
+            <img className="wave-loader" src="/images/wave.svg" alt="" />
+          </div>
+        </Main>
+      )
+    } else {
+      return (
+        <Main>
+          {persons}
+        </Main>
+      )
+    }
   }
 }
 
