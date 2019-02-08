@@ -20,8 +20,6 @@ Making smth like this
 - [ ] Showing detail user info
 - [ ] Ajax call for getting detail user info
 
-#### In progress...
-
 ## After completing first three things...
 
 ### Showing detail user info/getting detail user info 
