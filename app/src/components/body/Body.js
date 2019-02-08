@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Profile as Person } from "../user/basic/Profile"
+import ProfileBasic from "../user/basic/Profile"
+import ProfileDetailed from "../user/detailed/Profile";
 
 import { getBasicUserInfo } from "../../services/api/UserAPI"
 
@@ -8,11 +9,19 @@ export default class Body extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDetail: false,
-      people: []
+      showDetailUserInfo: false,
+      people: [],
+      currentUser: {}
     };
 
-    //this.showDetailedInfo = this.showDetailedInfo.bind(this);
+    this.handlerShowDetailUserInfo = this.handlerShowDetailUserInfo.bind(this);
+  }
+
+  handlerShowDetailUserInfo() {
+    this.setState({
+      // isLoaded: true,
+      showDetailUserInfo: !this.state.showDetailUserInfo
+    })
   }
 
   componentDidMount() {
@@ -36,31 +45,38 @@ export default class Body extends Component {
   }
 
   render() {
-    const { people } = this.state;
-    let persons = [];
-    // making one big component
-    for (let [index, person] of people.entries()) {
-      persons.push(<Person key={index} person={person} />)
-    }
+    const { showDetailUserInfo, people, currentUser } = this.state;
 
-    if (people.length < 1) {
+    if (showDetailUserInfo) {
       return (
-        <Main>
-          <div className="wave-loader-wrapper">
-            <img className="wave-loader" src="/images/wave.svg" alt="" />
-          </div>
-        </Main>
+        <ProfileDetailed user={currentUser} handlerShowDetailUserInfo={this.handlerShowDetailUserInfo} />
       )
     } else {
-      return (
-        <Main>
-          {persons}
-        </Main>
-      )
+      let persons = [];
+      // making one big component
+      for (let [index, person] of people.entries()) {
+        persons.push(<ProfileBasic key={index} person={person} handlerShowDetailUserInfo={this.handlerShowDetailUserInfo} />)
+      }
+
+      if (people.length < 1) {
+        return (
+          <BodyWrapper>
+            <div className="wave-loader-wrapper">
+              <img className="wave-loader" src="/images/wave.svg" alt="" />
+            </div>
+          </BodyWrapper>
+        )
+      } else {
+        return (
+          <BodyWrapper>
+            {persons}
+          </BodyWrapper>
+        )
+      }
     }
   }
 }
 
-const Main = styled.main`
+const BodyWrapper = styled.main`
   flex: 1;
 `;
