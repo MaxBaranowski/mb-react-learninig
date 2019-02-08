@@ -14,9 +14,9 @@ export default function Country(props) {
 const Flag = styled.figure`
   width: auto;
   height: auto;
-  position: absolute;
-  top: -75px;
-  right: 0;
+  // position: absolute;
+  // top: -75px;
+  // right: 0;
 
   img{
     width: 3rem;

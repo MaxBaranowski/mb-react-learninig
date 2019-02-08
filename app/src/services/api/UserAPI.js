@@ -1,4 +1,4 @@
-export const getBasicUserInfo = async (amount = 10, ...params) => {
+export const getBasicUserInfo = async (amount = 100, ...params) => {
   try {
     const response = await fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`);
     // console.log(response)

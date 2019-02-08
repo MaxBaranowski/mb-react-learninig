@@ -19,3 +19,6 @@ Making smth like this
 - [X] Ajax call for getting basic users info
 - [ ] Showing detail user info
 - [ ] Ajax call for getting detail user info
+
+### In progress...
+![Screenshot](in-progress-1.gif)

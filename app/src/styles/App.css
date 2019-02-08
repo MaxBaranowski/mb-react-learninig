@@ -21,7 +21,9 @@ body{
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-self: center;
+  justify-self: center;
+  grid-column: 1 / -1;
   min-height: calc(100vh - 70px);
 }
 
