@@ -7,7 +7,7 @@
 - [ ] Portfolio
 
 ### Person List
-Making smth like this
+Making smth like this:<br>
 ![Screenshot](screenshot.png)
 
 ## Code Refactoring
@@ -23,7 +23,7 @@ Making smth like this
 ## After completing first three things...
 
 ### Showing detail user info/getting detail user info 
-Component which shows all available users now looks like:
+Component which shows all available users now looks like:<br>
 ![Screenshot](in-progress-1.gif)
 
 Appeared a problem with getting/storing user detailed data.<br>  
