@@ -8,9 +8,11 @@ export default class Body extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // isLoaded: true,
+      showDetail: false,
       people: []
     };
+
+    //this.showDetailedInfo = this.showDetailedInfo.bind(this);
   }
 
   componentDidMount() {
