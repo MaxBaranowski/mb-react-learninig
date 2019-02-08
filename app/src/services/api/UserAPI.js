@@ -14,3 +14,7 @@ export const getBasicUserInfo = async (amount = 10, ...params) => {
   // return fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`)
   //   .then(response => response.json())
 }
+
+export const getCountryFlag = (countryName) => {
+  return `https://www.countryflags.io/${countryName}/flat/64.png`;
+}

@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-// import ProfileDetailed from "../detailed/Profile";
+import React, { Component } from "react";
+import styled from "styled-components";
+import Avatar from "./components/Avatar";
+import UserInformation from "./components/UserInformation";
 
 export default class ProfileBasic extends Component {
   constructor(props) {
@@ -18,15 +20,25 @@ export default class ProfileBasic extends Component {
 
   render() {
     return (
-      <div className="person" onClick={() => this.props.showHidePersonDetailedView(this.user)} >
-        <img src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
-        <div>
-          <h4>{this.user.name.first.capitalizeFirstLetter() + " " + this.user.name.last.capitalizeFirstLetter()}</h4>
-          <h4>{this.user.nationality}</h4>
-          {/* <p>{additionalKeys}</p> */}
-        </div>
-      </div>
+      <UserWrapper onClick={() => this.props.showHidePersonDetailedView(this.user)} >
+        <Avatar src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
+        <UserInformation user={this.user.name} nationality={this.user.nationality} />
+      </UserWrapper>
     )
   }
 }
 
+const UserWrapper = styled.div`
+  background: #eeeeee;
+  width: 17rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  transition: all 0.3s linear;
+  border-radius: 0.3rem;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  }
+`;
