@@ -45,36 +45,45 @@ export default class Body extends Component {
     });
   }
 
+  showUsersWithBasicInfo(people) {
+    let persons = [];
+    // making one big component
+    for (let [index, person] of people.entries()) {
+      persons.push(<ProfileBasic key={index} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
+    }
+
+    // if no users - ajax request with getting date hasn`t yet been completed => show loader
+    if (people.length < 1) {
+      return (
+        <BodyWrapper>
+          <div className="wave-loader-wrapper">
+            <img className="wave-loader" src="/images/wave.svg" alt="" />
+          </div>
+        </BodyWrapper>
+      )
+      // show users
+    } else {
+      return (
+        <BodyWrapper>
+          {persons}
+        </BodyWrapper>
+      )
+    }
+  }
+
+  showChosenUserDetailedInfo(currentUser) {
+    return (
+      <ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />
+    )
+  }
+
   render() {
     const { isDetailUserInfoShown, people, currentUser } = this.state;
-
+    // show detail user info component
     if (isDetailUserInfoShown) {
-      return (
-        <ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />
-      )
+      return this.showChosenUserDetailedInfo(currentUser);
     } else {
-      let persons = [];
-      // making one big component
-      for (let [index, person] of people.entries()) {
-        persons.push(<ProfileBasic key={index} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
-      }
-
-      if (people.length < 1) {
-        return (
-          <BodyWrapper>
-            <div className="wave-loader-wrapper">
-              <img className="wave-loader" src="/images/wave.svg" alt="" />
-            </div>
-          </BodyWrapper>
-        )
-      } else {
-        return (
-          <BodyWrapper>
-            {persons}
-          </BodyWrapper>
-        )
-      }
-
+      return this.showUsersWithBasicInfo(people);
     }
   }
 }

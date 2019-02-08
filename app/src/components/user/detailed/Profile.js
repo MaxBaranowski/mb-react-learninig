@@ -11,7 +11,6 @@ export default class ProfileDetailed extends Component {
 
   render() {
     const { user } = this.state;
-    console.log(user)
     return (
       <DetailProfileWrapper onClick={this.props.showHidePersonDetailedView}>
         {user.name.first}
