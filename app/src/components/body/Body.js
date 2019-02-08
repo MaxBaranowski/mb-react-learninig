@@ -9,18 +9,19 @@ export default class Body extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDetailUserInfo: false,
+      isDetailUserInfoShown: false,
       people: [],
       currentUser: {}
     };
 
-    this.handlerShowDetailUserInfo = this.handlerShowDetailUserInfo.bind(this);
+    this.handlerShowHideDetailUserInfo = this.showDetailUserInfo.bind(this);
   }
 
-  handlerShowDetailUserInfo() {
+  showDetailUserInfo(user = this.state.currentUser) {
     this.setState({
       // isLoaded: true,
-      showDetailUserInfo: !this.state.showDetailUserInfo
+      isDetailUserInfoShown: !this.state.isDetailUserInfoShown,
+      currentUser: user
     })
   }
 
@@ -45,17 +46,17 @@ export default class Body extends Component {
   }
 
   render() {
-    const { showDetailUserInfo, people, currentUser } = this.state;
+    const { isDetailUserInfoShown, people, currentUser } = this.state;
 
-    if (showDetailUserInfo) {
+    if (isDetailUserInfoShown) {
       return (
-        <ProfileDetailed user={currentUser} handlerShowDetailUserInfo={this.handlerShowDetailUserInfo} />
+        <ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />
       )
     } else {
       let persons = [];
       // making one big component
       for (let [index, person] of people.entries()) {
-        persons.push(<ProfileBasic key={index} person={person} handlerShowDetailUserInfo={this.handlerShowDetailUserInfo} />)
+        persons.push(<ProfileBasic key={index} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
       }
 
       if (people.length < 1) {
@@ -73,6 +74,7 @@ export default class Body extends Component {
           </BodyWrapper>
         )
       }
+
     }
   }
 }

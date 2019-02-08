@@ -13,8 +13,8 @@ export default class ProfileDetailed extends Component {
     const { user } = this.state;
     console.log(user)
     return (
-      <DetailProfileWrapper onClick={this.props.handlerShowDetailUserInfo}>
-        {/* {user.name.first} */}
+      <DetailProfileWrapper onClick={this.props.showHidePersonDetailedView}>
+        {user.name.first}
       </DetailProfileWrapper>
     )
   }

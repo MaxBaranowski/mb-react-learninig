@@ -1,7 +1,7 @@
 export const getBasicUserInfo = async (amount = 10, ...params) => {
   try {
     const response = await fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`);
-    console.log(response)
+    // console.log(response)
     if (response.status !== 200) {
       throw new Error("Bad response from server: ", response.statusText);
     }

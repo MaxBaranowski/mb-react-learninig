@@ -18,7 +18,7 @@ export default class ProfileBasic extends Component {
 
   render() {
     return (
-      <div className="person" onClick={this.props.handlerShowDetailUserInfo} >
+      <div className="person" onClick={() => this.props.showHidePersonDetailedView(this.user)} >
         <img src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
         <div>
           <h4>{this.user.name.first.capitalizeFirstLetter() + " " + this.user.name.last.capitalizeFirstLetter()}</h4>
