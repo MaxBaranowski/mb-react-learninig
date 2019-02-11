@@ -3,7 +3,7 @@ export const getBasicUserInfo = async (amount = 100, ...params) => {
     // old randomuser 
     //const response = await fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`);
     //mLab DB
-    const response = await fetch(`http://localhost:8080/api/get-users/${amount}`);
+    const response = await fetch(`https://mb-react-person-list.herokuapp.com/api/get-users/${amount}`, { mode: 'no-cors' });
 
     if (response.status !== 200) {
       throw new Error("Bad response from server: ", response.statusText);
