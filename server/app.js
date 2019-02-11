@@ -1,9 +1,12 @@
 const express = require('express');
 const axios = require('axios');
-const MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectId;
+// const MongoClient = require('mongodb').MongoClient;
+// const ObjectId = require('mongodb').ObjectId;
 const bodyParser = require('body-parser');
 const app = express();
+
+const user_controller = require("./controllers/userController");
+//router.get('/', user_controller.index);
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -92,7 +95,8 @@ app.get('/api/get-users/:amount', async function (req, res) {
       db.collection('users-basic')
         .find()
         .limit(ammount)
-        .toArray().then((data) => {
+        .toArray()
+        .then((data) => {
           database.close();
           res.send({
             results: data
@@ -105,29 +109,14 @@ app.get('/api/get-users/:amount', async function (req, res) {
 
 //get user detailed info from mLab
 app.get('/api/get-user-detailed/:id', async function (req, res) {
+  const db = require("./models/db/user");
   const id = (typeof req.params.id === "string" && !Number(req.params.id) && req.params.id.length === 24) ? req.params.id : false;
   if (!id) {
     res.send("ERROR, bad parametr!")
     return;
   }
-  await MongoClient.connect(
-    'mongodb://admin:YaOTg3Z7s8w9vr8YoJTn@ds125945.mlab.com:25945/mb-react-person-list',
-    { useNewUrlParser: true },
-    function (err, database) {
-      if (err) throw err;
-      var db = database.db('mb-react-person-list');
-      db.collection('users-detailed')
-        .find({
-          "_id": ObjectId(id)
-        })
-        .toArray().then((data) => {
-          database.close();
-          res.send({
-            result: data
-          });
-        });
-    }
-  );
+  await db.getUser(id, function (data) { res.send({ result: data }); })
+
 })
 
 app.listen(process.env.PORT || 8080, () => {
