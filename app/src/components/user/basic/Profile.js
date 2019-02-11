@@ -13,7 +13,7 @@ export default class ProfileBasic extends Component {
     this.user = {
       full: props.user,
       name: props.person.name,
-      images: props.person.picture,
+      images: props.person.images,
       nationality: props.person.nat
     }
   }

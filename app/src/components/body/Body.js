@@ -48,9 +48,10 @@ export default class Body extends Component {
   showUsersWithBasicInfo(people) {
     let persons = [];
     // making one big component
+    // eslint-disable-next-line
     for (let [index, person] of people.entries()) {
       // console.log(person)
-      persons.push(<ProfileBasic key={index} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
+      persons.push(<ProfileBasic key={person.id} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
     }
 
     // if no users - ajax request with getting date hasn`t yet been completed => show loader
