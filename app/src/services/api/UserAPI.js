@@ -1,11 +1,16 @@
 export const getBasicUserInfo = async (amount = 100, ...params) => {
   try {
-    const response = await fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`);
-    // console.log(response)
+    // old randomuser 
+    //const response = await fetch(`https://randomuser.me/api/?inc=${params}&results=${amount}&format=json`);
+    //mLab DB
+    const response = await fetch(`http://localhost:8080/api/get-users/${amount}`);
+
     if (response.status !== 200) {
       throw new Error("Bad response from server: ", response.statusText);
     }
+    // console.log(response.json())
     return response.json();
+
   }
   catch (error) {
     throw new Error("ERROR! API: ", error);
