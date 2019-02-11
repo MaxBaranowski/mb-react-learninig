@@ -12,7 +12,7 @@ exports.getUser = function (id, cb) {
 
       let database = connection.db(db.DB_DATABASE_NAME);
       database
-        .collection(db.DB_COLLECTION_NAME)
+        .collection(db.DB_COLLECTION_DETAILED)
         .find({
           "_id": db.ObjectId(id)
         })
@@ -37,7 +37,7 @@ exports.getUsers = function (amount, cb) {
 
       let database = connection.db(db.DB_DATABASE_NAME);
       database
-        .collection(db.DB_COLLECTION_NAME)
+        .collection(db.DB_COLLECTION_NAME_BASIC)
         .find()
         .limit(amount)
         .toArray()
