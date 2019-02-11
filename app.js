@@ -84,27 +84,10 @@ app.get('/api/make-basic-users', async function (req, res) {
 
 //get users from mLab
 app.get('/api/get-users/:amount', async function (req, res) {
+  const db = require("./models/db/user");
   const ammount = (Number(req.params.amount) !== NaN && Number(req.params.amount) <= 1000 && Number(req.params.amount) > 0) ? Number(req.params.amount) : 100;
 
-  await MongoClient.connect(
-    'mongodb://admin:YaOTg3Z7s8w9vr8YoJTn@ds125945.mlab.com:25945/mb-react-person-list',
-    { useNewUrlParser: true },
-    function (err, database) {
-      if (err) throw err;
-      var db = database.db('mb-react-person-list');
-      db.collection('users-basic')
-        .find()
-        .limit(ammount)
-        .toArray()
-        .then((data) => {
-          database.close();
-          res.send({
-            results: data
-          })
-        })
-    }
-  );
-
+  await db.getUsers(ammount, function (data) { res.send({ result: data }); })
 });
 
 //get user detailed info from mLab
