@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 // const MongoClient = require('mongodb').MongoClient;
 // const ObjectId = require('mongodb').ObjectId;
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -12,6 +13,15 @@ const user_controller = require("./controllers/userController");
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json({ limit: '5mb' }))
+//enables cors
+app.use(cors({
+  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'exposedHeaders': ['sessionId'],
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
+
 
 //make 5000 users from randomuser
 app.get('/api/make-detailed-users', async function (req, res) {
