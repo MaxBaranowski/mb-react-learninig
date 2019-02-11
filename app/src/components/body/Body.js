@@ -36,7 +36,7 @@ export default class Body extends Component {
     }).then((response) => {
       this.setState({
         // isLoaded: true,
-        people: response.results
+        people: response.result
       })
       // console.log(people)
     }).catch((err) => {
@@ -49,6 +49,7 @@ export default class Body extends Component {
     let persons = [];
     // making one big component
     for (let [index, person] of people.entries()) {
+      // console.log(person)
       persons.push(<ProfileBasic key={index} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
     }
 
