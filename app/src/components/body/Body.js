@@ -57,23 +57,15 @@ export default class Body extends Component {
 
     // if no users - ajax request with getting date hasn`t yet been completed => show loader
     if (people.length < 1) {
-      return (
-        <Loader />
-      )
+      return (<Loader />)
       // show users
     } else {
-      return (
-        <BodyWrapper>
-          {persons}
-        </BodyWrapper>
-      )
+      return (<BodyWrapper> {persons} </BodyWrapper>)
     }
   }
 
   showChosenUserDetailedInfo(currentUser) {
-    return (
-      <ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />
-    )
+    return (<ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />)
   }
 
   render() {
