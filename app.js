@@ -1,12 +1,12 @@
 const express = require('express');
 const axios = require('axios');
-// const MongoClient = require('mongodb').MongoClient;
-// const ObjectId = require('mongodb').ObjectId;
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
+
 const app = express();
 
-const user_controller = require("./controllers/userController");
+// const user_controller = require("./controllers/userController");
 //router.get('/', user_controller.index);
 
 // parse application/x-www-form-urlencoded
@@ -21,7 +21,11 @@ app.use(cors({
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(public, 'index.html'));
+});
 
 //make 5000 users from randomuser
 app.get('/api/make-detailed-users', async function (req, res) {
