@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import ProfileBasic from "../user/basic/Profile"
 import ProfileDetailed from "../user/detailed/Profile";
+import Loader from "./Loader"
 
 import { getBasicUserInfo } from "../../services/api/UserAPI"
 
@@ -57,11 +58,7 @@ export default class Body extends Component {
     // if no users - ajax request with getting date hasn`t yet been completed => show loader
     if (people.length < 1) {
       return (
-        <BodyWrapper>
-          <div className="wave-loader-wrapper">
-            <img className="wave-loader" src="/images/wave.svg" alt="" />
-          </div>
-        </BodyWrapper>
+        <Loader />
       )
       // show users
     } else {
