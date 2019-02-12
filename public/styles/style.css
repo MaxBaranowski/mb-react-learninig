@@ -8,7 +8,7 @@ body{
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background-image: url(/images/wave.svg);
+  background-image: url(/static/images/wave.svg);
   background-repeat: no-repeat;
   background-position: 50% 75%;
   background-size: 15rem;

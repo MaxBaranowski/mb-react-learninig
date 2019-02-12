@@ -48,3 +48,47 @@ exports.getUsers = function (amount, cb) {
     }
   );
 };
+
+exports.createUsersDetailedCollection = function (users, cb) {
+  db.MongoClient.connect(
+    db.DB_URI,
+    { useNewUrlParser: true },
+    (err, connection) => {
+      if (err) {
+        res.send("ERROR: ", err);
+        throw err;
+      }
+
+      let database = connection.db(db.DB_DATABASE_NAME);
+      database
+        .collection(db.DB_COLLECTION_DETAILED)
+        .insertMany(users)
+        .then((data) => {
+          connection.close();
+          cb(data);
+        });
+    }
+  );
+};
+
+exports.createUsersBasicCollection = function (users, cb) {
+  db.MongoClient.connect(
+    db.DB_URI,
+    { useNewUrlParser: true },
+    (err, connection) => {
+      if (err) {
+        res.send("ERROR: ", err);
+        throw err;
+      }
+
+      let database = connection.db(db.DB_DATABASE_NAME);
+      database
+        .collection(db.DB_COLLECTION_NAME_BASIC)
+        .insertMany(users)
+        .then((data) => {
+          connection.close();
+          cb(data);
+        });
+    }
+  );
+}
