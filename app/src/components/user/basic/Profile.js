@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import styled from "styled-components";
 import Avatar from "./components/Avatar";
 import UserInformation from "./components/UserInformation";
@@ -11,6 +12,7 @@ export default class ProfileBasic extends Component {
     };
 
     this.user = {
+      id: props.person.id,
       full: props.user,
       name: props.person.name,
       images: props.person.images,
@@ -20,10 +22,12 @@ export default class ProfileBasic extends Component {
 
   render() {
     return (
-      <UserWrapper onClick={() => this.props.showHidePersonDetailedView(this.user)} >
-        <Avatar src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
-        <UserInformation user={this.user.name} nationality={this.user.nationality} />
-      </UserWrapper>
+      <Link to={"/user/" + this.user.id} className="nav-link-unset">
+        <UserWrapper >
+          <Avatar src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
+          <UserInformation user={this.user.name} nationality={this.user.nationality} />
+        </UserWrapper>
+      </Link>
     )
   }
 }

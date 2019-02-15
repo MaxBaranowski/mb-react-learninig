@@ -7,7 +7,7 @@ export default class ProfileDetailed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: props.user
+      user: this.props.match.params
     };
   }
   componentDidMount() {

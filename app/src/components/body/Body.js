@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import ProfileBasic from "../user/basic/Profile"
-import ProfileDetailed from "../user/detailed/Profile";
+import ProfileDetailed from "../user/detailed/Profile"
 import Loader from "./Loader"
 
 import { getBasicUserInfo } from "../../services/api/UserAPI"
@@ -15,22 +15,13 @@ export default class Body extends Component {
       currentUser: {}
     };
 
-    this.handlerShowHideDetailUserInfo = this.showDetailUserInfo.bind(this);
-  }
-
-  showDetailUserInfo(user = this.state.currentUser) {
-    this.setState({
-      // isLoaded: true,
-      isDetailUserInfoShown: !this.state.isDetailUserInfoShown,
-      currentUser: user
-    })
   }
 
   componentDidMount() {
     new Promise((resolve, reject) => {
       try {
         const result = getBasicUserInfo(undefined, "name", "picture", "nat");
-        resolve(result)
+        resolve(result);
       } catch (error) {
         reject(error.message)
       }
@@ -51,8 +42,7 @@ export default class Body extends Component {
     // making one big component
     // eslint-disable-next-line
     for (let [index, person] of people.entries()) {
-      // console.log(person)
-      persons.push(<ProfileBasic key={person.id} person={person} showHidePersonDetailedView={() => this.showDetailUserInfo(person)} />)
+      persons.push(<ProfileBasic key={person.id} person={person} />)
     }
 
     // if no users - ajax request with getting date hasn`t yet been completed => show loader
@@ -64,18 +54,9 @@ export default class Body extends Component {
     }
   }
 
-  showChosenUserDetailedInfo(currentUser) {
-    return (<ProfileDetailed user={currentUser} showHidePersonDetailedView={() => this.showDetailUserInfo()} />)
-  }
-
   render() {
     const { isDetailUserInfoShown, people, currentUser } = this.state;
-    // show detail user info component
-    if (isDetailUserInfoShown) {
-      return this.showChosenUserDetailedInfo(currentUser);
-    } else {
-      return this.showUsersWithBasicInfo(people);
-    }
+    return this.showUsersWithBasicInfo(people);
   }
 }
 

@@ -3,15 +3,21 @@ import './styles/App.css';
 import './additionalFunctions';
 
 import Header from "./components/header/Header";
-import Body from "./components/body/Body";
+// import Body from "./components/body/Body";
 import Footer from "./components/footer/Footer";
+import AppRouter from "./components/router/AppRouter"
+
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => (
-  <React.Fragment>
-    <Header />
-    <Body />
-    <Footer />
-  </React.Fragment>
+  <Router>
+    <React.Fragment>
+      <Header />
+      {/* <Body /> */}
+      <AppRouter />
+      <Footer />
+    </React.Fragment>
+  </Router>
 );
 
 export default App;

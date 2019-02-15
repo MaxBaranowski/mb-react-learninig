@@ -30,3 +30,8 @@ body{
 .wave-loader{
   height: 10rem;
 }
+
+.nav-link-unset{
+  text-decoration: none;
+  color: inherit;
+}

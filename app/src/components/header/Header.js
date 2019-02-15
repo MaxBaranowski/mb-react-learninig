@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
     <HeaderWrapper>
-      <HeaderName>Person List</HeaderName>
+      <HeaderName>
+        <Link className="nav-link-unset" to="/">
+          Person List
+        </Link>
+      </HeaderName>
       <HeaderLinkCode>
         <a href="https://github.com/MaxBaranowski/mb-react-learninig/tree/person_list_project">
           <img src="/images/git-logo-dark.svg" alt="" />
