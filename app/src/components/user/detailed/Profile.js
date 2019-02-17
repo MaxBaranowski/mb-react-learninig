@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { getDetailedUserInfo } from "../../../services/api/UserAPI"
 
 import Loader from "../../home/Loader"
-import Sidebar from "./components/Sidebar";
-import Main from "./components/Main.js"
+import Sidebar from "./components/Sidebar/Sidebar";
+import Main from "./components/Main/Main"
 
 export default class ProfileDetailed extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class ProfileDetailed extends Component {
         reject(error.message)
       }
     }).then((response) => {
-      console.log(response.result[0])
+      // console.log(response.result[0])
       this.setState({
         userDetailed: response.result[0]
       })
