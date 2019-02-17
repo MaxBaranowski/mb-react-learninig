@@ -38,8 +38,11 @@ exports.getUsers = function (amount, cb) {
       let database = connection.db(db.DB_DATABASE_NAME);
       database
         .collection(db.DB_COLLECTION_NAME_BASIC)
-        .find()
-        .limit(amount)
+        .aggregate(
+          [{ $sample: { size: amount } }]
+        )
+        // .find()
+        // .limit(amount)
         .toArray()
         .then((data) => {
           connection.close();
