@@ -13,7 +13,6 @@ const App = () => (
   <Router>
     <React.Fragment>
       <Header />
-      {/* <Body /> */}
       <AppRouter />
       <Footer />
     </React.Fragment>

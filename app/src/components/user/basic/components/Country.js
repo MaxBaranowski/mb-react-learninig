@@ -4,7 +4,7 @@ import { getCountryFlag } from "../../../../services/api/UserAPI";
 
 export default function Country(props) {
   return (
-    <Flag>
+    <Flag className={props.className}>
       <img src={getCountryFlag(props.src)} alt={props.alt} />
     </Flag>
   )
@@ -14,9 +14,6 @@ export default function Country(props) {
 const Flag = styled.figure`
   width: auto;
   height: auto;
-  // position: absolute;
-  // top: -75px;
-  // right: 0;
 
   img{
     width: 3rem;

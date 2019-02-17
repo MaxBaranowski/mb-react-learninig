@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 export default function Avatar(props) {
   return (
-    <>
+    <figure className={props.className}>
       <AvatarImage src={props.src} alt={props.alt} />
-    </>
+    </figure>
   )
 }
 

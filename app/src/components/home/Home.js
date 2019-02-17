@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import ProfileBasic from "../user/basic/Profile"
-import ProfileDetailed from "../user/detailed/Profile"
 import Loader from "./Loader"
 
 import { getBasicUserInfo } from "../../services/api/UserAPI"
 
-export default class Body extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +54,7 @@ export default class Body extends Component {
   }
 
   render() {
-    const { isDetailUserInfoShown, people, currentUser } = this.state;
+    const { people } = this.state;
     return this.showUsersWithBasicInfo(people);
   }
 }
