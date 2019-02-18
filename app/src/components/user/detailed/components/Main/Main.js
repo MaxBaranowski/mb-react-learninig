@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import Location from "./Location"
 import MapContainer from "./GoogleMap"
 
 export default function Main(props) {
@@ -15,7 +14,6 @@ export default function Main(props) {
             }
             </pre> */}
       <MapContainer />
-      <Location />
     </DetailProfileMainWrapper>
   )
 }
@@ -26,3 +24,5 @@ const DetailProfileMainWrapper = styled.main`
     flex: 1;
    
 `;
+
+// AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk
