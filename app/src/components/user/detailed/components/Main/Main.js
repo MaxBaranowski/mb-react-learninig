@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import Map from "./Map"
 
 export default function Main(props) {
   const { user } = props;
