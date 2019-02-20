@@ -1,19 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
-import MapContainer from "./GoogleMap"
 
 export default function Main(props) {
   const { user } = props;
   return (
     <DetailProfileMainWrapper>
       <h1>USER INFO DETAILED</h1>
-      {/* 
+      
             <pre>
             {
                 JSON.stringify(user, null, 2)
             }
-            </pre> */}
-      <MapContainer />
+            </pre>
     </DetailProfileMainWrapper>
   )
 }
