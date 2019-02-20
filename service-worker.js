@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/person_list_project/precache-manifest.add5cbc9f794000f24ad41288b2da812.js"
+  "/mb-react-learninig/precache-manifest.c5cc2df3dd9de1ce075859dc17248f5a.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/person_list_project/index.html", {
+workbox.routing.registerNavigationRoute("/mb-react-learninig/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
