@@ -60,3 +60,31 @@ app.get('/api/make-basic-users', user_controller.make_users_basic);
 ### How server works...
 
 ![Screenshot](how-server-works.gif)
+
+### Deployment on GitHub Pages
+
+There are two problems:
+1. :white_check_mark: Page works both on localhost:3000 and Gh-paes, but without images, part of link gets cut off after gh profile name.
+After a bit of searching i found helpful article: ['How to deploy a React app to a subdirectory'](https://medium.com/@svinkle/how-to-deploy-a-react-app-to-a-subdirectory-f694d46427c1)
+2. Page reloading causes application crash.
+
+#### 1. Set the basename
+```js
+<Switch basename={'/mb-react-learninig'}>
+```
+
+#### 2. Set the app homepage
+```json
+"homepage": "https://maxbaranowski.github.io/mb-react-learninig"
+```
+### 3. Update the Routes
+```js
+<Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
+<Route path={`${process.env.PUBLIC_URL}/user/:id`} component={ProfileDetailed}></Route>
+<Route component={NoMatch}></Route>
+```
+
+### 4. Update the Links
+```js
+<Link to={process.env.PUBLIC_URL + "/user/" + this.user.id} className="nav-link-unset">
+```
