@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3962dbd37303cc1a5eb6",
+    "revision": "06fe96841dea08f9f565",
     "url": "/mb-react-learninig/static/css/main.a6487f9c.chunk.css"
   },
   {
-    "revision": "3962dbd37303cc1a5eb6",
-    "url": "/mb-react-learninig/static/js/main.3962dbd3.chunk.js"
+    "revision": "06fe96841dea08f9f565",
+    "url": "/mb-react-learninig/static/js/main.06fe9684.chunk.js"
   },
   {
     "revision": "af25190c01023e2c4836",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/mb-react-learninig/static/js/2.1aa1e9bf.chunk.js"
   },
   {
-    "revision": "feefdbf0c1f4872353fced983660e7c4",
+    "revision": "edf2ffbd27593e760a08b6b254dbbd61",
     "url": "/mb-react-learninig/index.html"
   }
 ];
