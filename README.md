@@ -28,7 +28,7 @@ Component which shows all available users now looks like:<br>
 ![Screenshot](in-progress-1.gif)
 
 Appeared a problem with getting/storing user detailed data.<br>  
-[`Random User Generator`](https://randomuser.me/) is good, but seems not good enough for me. As i wants user data been `basic` (id, name, nationality) and `detailed` (all available keys which user generator gives). So i decided to create my own database with users. I will use [`mlab.com`](https://mlab.com) - Free Database-as-a-Service for MongoDB, to store users.
+[`Random User Generator`](https://randomuser.me/) is good, but i dont want getting all data in one request. As i wants user data been `basic` (id, name, nationality) and `detailed` (all available keys which user generator gives). So i decided to create my own database with users. I will use [`mlab.com`](https://mlab.com) - Free Database-as-a-Service for MongoDB, to store users.
 
 Also simple server is needed, as i\`m interesting in Node.js, server which should handle requests from React app and sending appropriate requests to the DataBase will be written in Node.js with further deploying on [`Heroku`](https://www.heroku.com/).
 
@@ -61,10 +61,10 @@ app.get('/api/make-basic-users', user_controller.make_users_basic);
 
 ![Screenshot](how-server-works.gif)
 
-### Deployment on GitHub Pages
+## Deployment on GitHub Pages
 
 There are two problems:
-1. :white_check_mark: Page works both on localhost:3000 and Gh-paes, but without images, part of link gets cut off after gh profile name.
+1. :white_check_mark: Page works both on localhost:3000 and gh-pages, but without images, part of link gets cut off after gh profile name.
 After a bit of searching i found helpful article: ['How to deploy a React app to a subdirectory'](https://medium.com/@svinkle/how-to-deploy-a-react-app-to-a-subdirectory-f694d46427c1)
 2. Page reloading causes application crash.
 
