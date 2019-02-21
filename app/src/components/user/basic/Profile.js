@@ -22,7 +22,7 @@ export default class ProfileBasic extends Component {
 
   render() {
     return (
-      <Link to={"/user/" + this.user.id} className="nav-link-unset">
+      <Link to={process.env.PUBLIC_URL + "/user/" + this.user.id} className="nav-link-unset">
         <UserWrapper >
           <Avatar src={this.user.images.thumbnail} alt={this.user.name.first + " " + this.user.name.last} />
           <UserInformation user={this.user.name} nationality={this.user.nationality} />

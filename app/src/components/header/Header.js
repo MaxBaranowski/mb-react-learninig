@@ -12,7 +12,7 @@ export default function Header() {
       </HeaderName>
       <HeaderLinkCode>
         <a href="https://github.com/MaxBaranowski/mb-react-learninig/tree/person_list_project">
-          <img src="/images/git-logo-dark.svg" alt="" />
+          <img src={`${process.env.PUBLIC_URL}/images/git-logo-dark.svg`} alt="" />
         </a>
       </HeaderLinkCode>
     </HeaderWrapper>

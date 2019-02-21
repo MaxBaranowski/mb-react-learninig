@@ -5,7 +5,7 @@ export default function Loader() {
   return (
     <BodyWrapper>
       <div className="wave-loader-wrapper">
-        <img className="wave-loader" src="/images/wave.svg" alt="" />
+        <img className="wave-loader" src={`${process.env.PUBLIC_URL}/images/wave.svg`} alt="" />
       </div>
     </BodyWrapper>
   )

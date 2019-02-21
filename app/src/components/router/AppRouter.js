@@ -8,9 +8,9 @@ import ProfileDetailed from "../user/detailed/Profile"
 export default function () {
   return (
     <React.Fragment>
-      <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/user/:id" component={ProfileDetailed}></Route>
+      <Switch basename={'/mb-react-learninig'}>
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/user/:id`} component={ProfileDetailed}></Route>
         <Route component={NoMatch}></Route>
       </Switch>
     </React.Fragment>
